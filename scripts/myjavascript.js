@@ -1,26 +1,49 @@
+var weatherAPIURL = "https://fcc-weather-api.glitch.me/api/current?";
+var name = "";
+var weatherConditions = [];
+var tempCurrent = 0;
+var tempMax = 0;
+var tempMin = 0;
+var locationLat = "";
+var locationLong = "";
+var countryCode = "";
+var time = new Date();
+var test ="";
+
 $(document).ready(function() {
-  var name = "";
-  var weatherConditions = [];
-  var temp = 0;
-  var test = [];
 
-  //Get weather details here
-  $("#testButton").on("click",function(){
-    $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat=-25&lon=25", function(val){
-      name = (val.name);
-      weatherConditions = (val.weather[0]);
-      temp = val.main.temp;
-      test = val;
+  //Get time
+  time = time.getHours() + ":" + time.getMinutes();
 
-      alert(temp);
+  //Ask for location permission get weather data from api
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function (position){
+      locationLat = position.coords.latitude;
+      locationLong = position.coords.longitude;
+      //Get weather data from api
+      $.getJSON(weatherAPIURL + "lat=" + locationLat + "&lon=" + locationLong, function(val){
+        name = val.name;
+        weatherConditions = val.weather[0];
+        tempCurrent = val.main.temp;
+        tempMax = val.main.temp_max;
+        tempMin = val.main.temp_min;
+        countryCode = val.sys.country.toUpperCase();
+        alert(tempCurrent + " / " + tempMax + " / " + tempMin  + " " + name + ", " + countryCode + " " + time);
+      });
+      //Get country name
+      $.getJSON("http://country.io/names.json&callback=\?", function(country){
+        test = country.countryCode;
+        alert(test);
+      });
     });
-  });
+  }
+  else{
+    alert("Geolocation is not supported by this browser.");
+  }
 
-  //Convert temp here
+  //Convert temp on anchor click (celcius to farnheit)
   $("#testTemp").on("click",function(){
     temp = temp * 6;
-    var myTime = new Date();
-    alert(myTime.getHours() + ":" + myTime.getMinutes());
   });
 
 });//End of ducment ready function test
