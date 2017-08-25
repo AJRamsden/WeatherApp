@@ -1,0 +1,97 @@
+.bodyMorning{
+  background: url(../Assets/morning.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.bodyAfternoon{
+  background-image: url(../Assets/day1.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.bodyNight{
+  background: url(../Assets/night2.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+body{
+  font-family: 'Passion One', cursive;
+  color: white;
+}
+.time{
+  display: inline;
+  font-size: 60px;
+}
+.date{
+  font-size: 22px;
+}
+.name{
+font-size: 22px;
+margin-top: -20px;
+}
+.temp{
+  font-size: 22px;
+  display: inline;
+}
+.hideWeatherContainer{
+  display: none;
+}
+a{
+  color: white;
+}
+.description{
+    font-size: 22px;
+}
+#breathing{
+-webkit-animation: breathing 4s ease-out infinite normal;
+   animation: breathing 4s ease-out infinite normal;
+}
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
