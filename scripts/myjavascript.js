@@ -79,7 +79,7 @@ else{
           $("#mainWeather").text(weatherConditions.main + ", " + weatherConditions.description);
           $("#weatherDetails").removeClass("hideWeatherContainer");
           $("#changeTemp").text(measurementName);
-
+          $("#footerContainer").removeClass("hidefooterContainer");
       });
       //GET THE COUNTRY NAME USING THE COUNTRY CODE RETURNED BY THE WEATHER API
       $.getJSON("http://country.io/names.json&callback=?", function(country){

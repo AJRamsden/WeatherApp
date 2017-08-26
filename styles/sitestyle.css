@@ -19,10 +19,14 @@
 body{
   font-family: 'Passion One', cursive;
   color: white;
+
 }
 .time{
   display: inline;
   font-size: 60px;
+}
+#weatherDetails{
+  height: 74vh;
 }
 .date{
   font-size: 22px;
@@ -41,6 +45,9 @@ margin-top: -20px;
   vertical-align: middle;
 }
 .hideWeatherContainer{
+  display: none;
+}
+.hidefooterContainer{
   display: none;
 }
 a{
