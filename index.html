@@ -15,7 +15,7 @@
 
 
 
-  <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Passion+One" rel="stylesheet">
   <!--SCRIPTS-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -25,17 +25,30 @@
 
   <div class="container hideWeatherContainer" id="weatherDetails" style="margin-top:100px;">
     <div style="display:inline-block; border-top:3px double; border-bottom: 3px double;">
-    <div style="display:inline-block; vertical-align:top; margin-right:20px; margin-top:10px;">
-      <h1 id="time" class="time"></h1>
-      <p id="date" class="date"></p>
-      <p id="name" class="name"></p>
-      <p id="temp" class="temp"></p><a><span class="temp">&deg;Celius</span></a>
-      <p id="mainWeather" class="description"></p>
-    </div>
-    <div id="weatherIcon" style="display:inline-block; margin-bottom:10px; margin-top:10px;">
-      <img id="breathing" src="Assets/sun_clouds.png" style="height:200px;" alt="">
+      <div style="display:inline-block; vertical-align:top; margin-right:20px; margin-top:10px; width:220px;">
+        <h1 id="time" class="time"></h1>
+        <p id="date" class="date"></p>
+        <p id="name" class="name"></p>
+        <p id="temp" class="temp"></p><p class="tempDegrees">&deg;</p><a id="changeTemp"></a>
+        <p id="mainWeather" class="description"></p>
+      </div>
+      <div id="weatherIcon" style="display:inline-block; margin-bottom:10px; margin-top:10px;">
+        <img id="breathing" src="Assets/sun_clouds.png" style="height:200px;" alt="">
+      </div>
     </div>
   </div>
-  </div>
+  <footer style="background-color:gray;">
+    <div id="footerContainer" style="background-color:rgba(0, 125, 136, 0.62); position:absolute; bottom:0; right:0; left:0;">
+      <div style="margin-left:20px; font-family: 'Open Sans Condensed', sans-serif; font-size:16px;">
+      <p>*Click on a time option below to emulate the background image according to the specified time, or change the time on your computer.</p>
+      <ul>
+        <li onclick="setBackground(this)" id="Morning">05:00 - 12:00 Morning</li>
+        <li onclick="setBackground(this)" id="Afternoon">12:00 - 17:00 Afternoon</li>
+        <li onclick="setBackground(this)" id="Evening">17:00 - 05:00 Evening</li>
+      </ul>
+      <p>Click on Celsius to change the temprature that is displayed</p>
+    </div>
+    </div>
+  </footer>
 </body>
 </html>
