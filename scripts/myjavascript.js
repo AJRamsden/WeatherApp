@@ -45,13 +45,13 @@ hours = time.getHours();
 
 $(document).ready(function() {
 
-//GET MINUTE TO ADD 0 IF SMALLER THAN 10 MINUTES
-if(time.getMinutes() < 10){
-  minutes = "0" + time.getMinutes();
-}
-else{
-  minutes = time.getMinutes();
-}
+  //GET MINUTE TO ADD 0 IF SMALLER THAN 10 MINUTES
+  if(time.getMinutes() < 10){
+    minutes = "0" + time.getMinutes();
+  }
+  else{
+    minutes = time.getMinutes();
+  }
   //THE CURRENT TIME DISPLAYED ON PAGE
   time = time.getHours() + ":" + minutes;
 
@@ -71,19 +71,15 @@ else{
         tempMax = val.main.temp_max;
         tempMin = val.main.temp_min;
         countryCode = val.sys.country.toUpperCase();
-          //BIND THE DATA TO THE HTML
-          $("#time").text(time);
-          $("#date").text(weatherDate);
-          $("#name").text(name);
-          $("#temp").text(tempCurrent);
-          $("#mainWeather").text(weatherConditions.main + ", " + weatherConditions.description);
-          $("#weatherDetails").removeClass("hideWeatherContainer");
-          $("#changeTemp").text(measurementName);
-          $("#footerContainer").removeClass("hidefooterContainer");
-      });
-      //GET THE COUNTRY NAME USING THE COUNTRY CODE RETURNED BY THE WEATHER API
-      $.getJSON("http://country.io/names.json&callback=?", function(country){
-        test = country.this_countryCode;
+        //BIND THE DATA TO THE HTML
+        $("#time").text(time);
+        $("#date").text(weatherDate);
+        $("#name").text(name);
+        $("#temp").text(tempCurrent);
+        $("#mainWeather").text(weatherConditions.main + ", " + weatherConditions.description);
+        $("#weatherDetails").removeClass("hideWeatherContainer");
+        $("#changeTemp").text(measurementName);
+        $("#footerContainer").removeClass("hidefooterContainer");
       });
     });
   }
@@ -93,22 +89,22 @@ else{
   //SET THE BACKGROUND IMAGE OF THE PAGE ACCORDING TO THE CURRENT TIME
   if(hours > 5 && hours < 12)
   {
-    $("#picBody").removeClass("bodyAfternoon")
-    $("#picBody").removeClass("bodyNight")
-    $("#picBody").addClass("bodyMorning")
+    $("#picBody").removeClass("bodyAfternoon");
+    $("#picBody").removeClass("bodyNight");
+    $("#picBody").addClass("bodyMorning");
     //alert("true");
   }
-  else if (hours > 12 & hours < 19)
+  else if (hours > 11 & hours < 19)
   {
-    $("#picBody").removeClass("bodyMorning")
-    $("#picBody").removeClass("bodyNight")
-    $("#picBody").addClass("bodyAfternoon")
+    $("#picBody").removeClass("bodyMorning");
+    $("#picBody").removeClass("bodyNight");
+    $("#picBody").addClass("bodyAfternoon");
   }
   else
   {
-    $("#picBody").removeClass("bodyMorning")
-    $("#picBody").removeClass("bodyAfternoon")
-    $("#picBody").addClass("bodyNight")
+    $("#picBody").removeClass("bodyMorning");
+    $("#picBody").removeClass("bodyAfternoon");
+    $("#picBody").addClass("bodyNight");
     //alert("false");
   }
 
@@ -120,12 +116,12 @@ else{
       var tempConverToF = parseInt(tempCurrent);
       tempConverToF = tempConverToF * (9 / 5) + 32;
       $("#temp").text(Math.round(tempConverToF));
-        $("#changeTemp").text("Fahrenheit");
+      $("#changeTemp").text("Fahrenheit");
     }
     else
     {
-        $("#temp").text(tempCurrent);
-        $("#changeTemp").text("Celsius");
+      $("#temp").text(tempCurrent);
+      $("#changeTemp").text("Celsius");
     }
   });
 
@@ -139,7 +135,7 @@ else{
       setTimeout(updateTime, 1000);
     }
     else{
-      var updateMinutes = timeNow.getMinutes();
+      updateMinutes = timeNow.getMinutes();
       $("#time").text(timeNow.getHours() + ":" + updateMinutes);
       setTimeout(updateTime, 20000);
     }
@@ -147,7 +143,8 @@ else{
   updateTime();
 
 
-
+  
+  
 });//End of ducment ready function test
 
 function setBackground(timeSelected){
@@ -168,4 +165,14 @@ function setBackground(timeSelected){
     $("#picBody").addClass("bodyNight");
     break;
   }
+}
+
+ 
+function googleSearch(){
+  var searchString = 'http://www.google.com/search?q=';
+  var searchInput = document.getElementById("googleSearchTextInput").value;
+  var searchTerm = searchInput.split(' ');
+    searchTerm = searchTerm.join('+');
+  
+  window.location.href = searchString + searchTerm;
 }
