@@ -126,3 +126,28 @@ a:hover{
   height: 100px !important;
 }
 }
+
+.title{
+  font-size: 60px !important;
+  color: #f89249 !important;
+  display: inline-block;
+}
+.quoteCardContainer{
+  display: inline-block;
+
+}
+.fa-quote-left{
+  color: #4fabe7;
+  margin-right: 6px;
+}
+.fa-quote-right{
+  color: #4fabe7;
+  margin-left: 3px;
+}
+.btn{
+  border: none !important;
+}
+.btn_custom{
+  box-shadow: 0px 3px 12px 0px black;
+  margin-right: 20px;
+}

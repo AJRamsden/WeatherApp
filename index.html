@@ -16,6 +16,9 @@
 
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Passion+One" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
   <!--SCRIPTS-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -24,23 +27,34 @@
 <body id="picBody">
 
   <div class="container hideWeatherContainer" id="weatherDetails" style="margin-top:100px;">
-    <div style="display:inline-block; border-top:3px double; border-bottom: 3px double;">
-      <div style="display:inline-block; vertical-align:top; margin-right:20px; margin-top:10px;">
-        <h1 id="time" class="time"></h1>
-        <p id="date" class="date"></p>
-        <p id="name" class="name"></p>
-        <p id="temp" class="temp"></p><p class="tempDegrees">&deg;</p><a id="changeTemp"></a>
-        <p id="mainWeather" class="description"></p>
+    <div class="cards-container" style="margin-bottom: 20px;">
+      <div style="display:inline-flex; border-top:3px double; border-bottom: 3px double; margin-right:100px;">
+        <div style="display:inline-block; vertical-align:top; margin-right:20px; margin-top:10px;">
+          <h1 id="time" class="time"></h1>
+          <p id="date" class="date"></p>
+          <p id="name" class="name"></p>
+          <p id="temp" class="temp"></p><p class="tempDegrees">&deg;</p><a id="changeTemp"></a>
+          <p id="mainWeather" class="description"></p>
+        </div>
+        <div id="weatherIcon" style="display:inline-block; margin-bottom:10px; margin-top:10px;">
+          <img id="breathing" src="Assets/sun_clouds.png" class="img-responsive" style="height:200px;" alt="">
+        </div>
       </div>
-      <div id="weatherIcon" style="display:inline-block; margin-bottom:10px; margin-top:10px;">
-        <img id="breathing" src="Assets/sun_clouds.png" class="img-responsive" style="height:200px;" alt="">
+      <div class="quoteCardContainer" style="display:inline-flex; vertical-align: top; position: relative;">
+        <div style="width:580px; height:232px; display:inline-block; box-shadow: 0px 3px 6px 0px black; background-color:white; border-radius:3px; " >
+          <div id="test2" style="margin:35px; font-size:20px; text-align:left;">
+            <i class="fa fa-quote-left"></i><div id="quote" style="display:inline; font-family: 'Cormorant Garamond', serif; color:black;">Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light.Though wise men at their end know dark is right, Because their words had forked no lightning they, Do not go gentle into that good night.
+            </div><i class="fa fa-quote-right"></i>
+            <div id="author" style="text-align:right; font-weight:900; font-size:40px; color:#4fabe7; font-family: 'Herr Von Muellerhoff', cursive;"><b>Dylan Thomas</b></div>
+          </div>
+        </div>
       </div>
     </div>
     <div>
       <input id="googleSearchTextInput" type="">
       <button type="button" onclick="googleSearch()">search</button>
     </div>
-  </div>
+   
   <!-- <footer>
     <div id="footerContainer" class="hidefooterContainer" style="background-color:rgba(0, 0, 0, 0.48);">
       <div style="margin-left:20px; font-family: 'Open Sans Condensed', sans-serif; font-size:16px;">
